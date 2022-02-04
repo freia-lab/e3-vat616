@@ -37,6 +37,9 @@ get_stat3 {
 
 reset {
    out "R \$1";
-   in "R 0";
-   ExtraInput=Ignore;
+   in "R \$1 %*d";
+}
+cmd_stat {
+   in "\$2 \$1 %d";
+#   in "R \$1 %d";
 }

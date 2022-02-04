@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>VATvalves</name>
+  <macros>
+    <P>CstatV-RHtr:CV58</P>
+  </macros>
+  <width>1170</width>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>VAT valves</text>
+    <x use_class="true">20</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height use_class="true">50</height>
+    <font use_class="true">
+      <font name="Header 1" family="Source Sans Pro" style="BOLD_ITALIC" size="36.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="HEADER-TEXT" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment use_class="true">0</horizontal_alignment>
+    <vertical_alignment use_class="true">1</vertical_alignment>
+    <wrap_words use_class="true">false</wrap_words>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <macros>
+      <Cvalve>$(P)$(N)</Cvalve>
+      <N>0</N>
+    </macros>
+    <file>Embedded/CstatV-VATvalve.bob</file>
+    <x>10</x>
+    <y>70</y>
+    <width>280</width>
+    <height>350</height>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="GRAY-BORDER" red="121" green="121" blue="121">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_1</name>
+    <macros>
+      <Cvalve>$(P)$(N)</Cvalve>
+      <N>1</N>
+    </macros>
+    <file>Embedded/CstatV-VATvalve.bob</file>
+    <x>300</x>
+    <y>70</y>
+    <width>280</width>
+    <height>350</height>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_2</name>
+    <macros>
+      <Cvalve>$(P)$(N)</Cvalve>
+      <N>2</N>
+    </macros>
+    <file>Embedded/CstatV-VATvalve.bob</file>
+    <x>590</x>
+    <y>70</y>
+    <width>280</width>
+    <height>350</height>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_3</name>
+    <macros>
+      <Cvalve>$(P)$(N)</Cvalve>
+      <N>3</N>
+    </macros>
+    <file>Embedded/CstatV-VATvalve.bob</file>
+    <x>880</x>
+    <y>70</y>
+    <width>280</width>
+    <height>350</height>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <file>../freia-symbols/display-builder/asyn/asynRecord.bob</file>
+        <macros>
+          <P>ioc-vat616:</P>
+          <R>asynRec</R>
+        </macros>
+        <target>replace</target>
+        <description>Asyn Record...</description>
+      </action>
+    </actions>
+    <x>40</x>
+    <y>450</y>
+    <width>110</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

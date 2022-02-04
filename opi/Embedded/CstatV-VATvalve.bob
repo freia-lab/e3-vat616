@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>$(Cvalve)</name>
+  <width>470</width>
+  <height>500</height>
+  <background_color>
+    <color name="BACKGROUND" red="220" green="225" blue="221">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_visible>false</grid_visible>
+  <widget type="label" version="2.0.0">
+    <name>$(Cvalve)</name>
+    <text>$(Cvalve)</text>
+    <x>33</x>
+    <y>4</y>
+    <width>245</width>
+    <height>23</height>
+    <font>
+      <font family="Source Sans Pro" style="BOLD_ITALIC" size="22.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Menu Button Template</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(Cvalve):cmdAuto</pv_name>
+        <value>1</value>
+        <description>Auto</description>
+      </action>
+      <action type="write_pv">
+        <pv_name>$(Cvalve):cmdMan</pv_name>
+        <value>1</value>
+        <description>Manual</description>
+      </action>
+    </actions>
+    <pv_name>$(Cvalve):sAuto</pv_name>
+    <text>Ctrl Mode</text>
+    <x>117</x>
+    <y>76</y>
+    <height>26</height>
+    <font>
+      <font family="Source Sans Pro" style="BOLD" size="13.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_5</name>
+    <text>Controlled from WinCC! </text>
+    <x>32</x>
+    <y>28</y>
+    <width>185</width>
+    <height>23</height>
+    <font>
+      <font name="Header 3" family="Source Sans Pro" style="BOLD_ITALIC" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Major" red="255" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="VisibilityRule" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>CstatV-Ctrl:opMode:sLocal</pv_name>
+      </rule>
+    </rules>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_11</name>
+    <text>Auto position [%]:</text>
+    <x>30</x>
+    <y>175</y>
+    <width>130</width>
+    <foreground_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template</name>
+    <pv_name>$(Cvalve):cSetV</pv_name>
+    <x>190</x>
+    <y>120</y>
+    <width>60</width>
+    <precision>1</precision>
+    <show_units>false</show_units>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="Visibility rule" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0">
+          <value>false</value>
+        </exp>
+        <pv_name>$(Cvalve):sAuto</pv_name>
+      </rule>
+    </rules>
+    <border_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_12</name>
+    <text>Position input [%]:</text>
+    <x>30</x>
+    <y>120</y>
+    <width>130</width>
+    <foreground_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="Visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0">
+          <value>false</value>
+        </exp>
+        <pv_name>$(Cvalve):sAuto</pv_name>
+      </rule>
+    </rules>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_13</name>
+    <text>Position [%]:</text>
+    <x>30</x>
+    <y>150</y>
+    <width>110</width>
+    <foreground_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_1</name>
+    <pv_name>$(Cvalve):sRdV</pv_name>
+    <x>190</x>
+    <y>150</y>
+    <width>60</width>
+    <precision>1</precision>
+    <show_units>false</show_units>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_2</name>
+    <pv_name>$(Cvalve):sAutoRdV</pv_name>
+    <x>190</x>
+    <y>175</y>
+    <width>60</width>
+    <precision>1</precision>
+    <show_units>false</show_units>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>Auto</text>
+    <x>32</x>
+    <y>57</y>
+    <width>45</width>
+    <foreground_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED Template</name>
+    <pv_name>$(Cvalve):sAuto</pv_name>
+    <bit>0</bit>
+    <x>32</x>
+    <y>77</y>
+    <width>35</width>
+    <height>35</height>
+    <off_label>OFF</off_label>
+    <off_color>
+      <color name="MINOR" red="252" green="242" blue="17">
+      </color>
+    </off_color>
+    <on_label>ON</on_label>
+    <on_color>
+      <color name="LED-GREEN-ON" red="70" green="255" blue="70">
+      </color>
+    </on_color>
+    <font>
+      <font family="Source Sans Pro" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_14</name>
+    <text>Actual position:</text>
+    <x>30</x>
+    <y>205</y>
+    <width>105</width>
+    <foreground_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_3</name>
+    <pv_name>$(Cvalve):sRRdV</pv_name>
+    <x>190</x>
+    <y>205</y>
+    <width>60</width>
+    <precision>1</precision>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_15</name>
+    <text>Error :</text>
+    <x>30</x>
+    <y>230</y>
+    <width>41</width>
+    <foreground_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_4</name>
+    <pv_name>$(Cvalve):sErr</pv_name>
+    <x>190</x>
+    <y>230</y>
+    <width>60</width>
+    <precision>0</precision>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name).PROC</pv_name>
+        <value>1</value>
+        <description>Reset Controller</description>
+      </action>
+    </actions>
+    <pv_name>$(Cvalve):cmdRst</pv_name>
+    <x>40</x>
+    <y>260</y>
+    <width>120</width>
+    <tooltip>$(actions)</tooltip>
+    <confirm_message>Are your sure you want to Reset  controller?
+The valve will close!</confirm_message>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(Cvalve):sErr-cmd</pv_name>
+    <x>210</x>
+    <y>290</y>
+    <width>40</width>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Status of Last Command:</text>
+    <x>30</x>
+    <y>290</y>
+    <width>180</width>
+    <height>30</height>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+</display>

@@ -1,64 +1,132 @@
 record (ai, "$(P)CV580:sRRdV") {
     field(SCAN, "5 second")
-    field(DTYP, "stream)
+    field(DTYP, "stream")
     field(INP, "@vat616.proto get_pos0 $(PORT)")
+    field(EGU, "%")
 }
 
 record (longin, "$(P)CV580:sErr") {
-    field(SCAN, I/O Intr")
-    field(DTYP, "stream)
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
     field(INP, "@vat616.proto get_stat0 $(PORT)")
+    field(LOW, -1)
+    field(LSV, "MINOR")
+    field(HIHI, 1)
+    field(HHSV, "MAJOR")
 }
 
 record (ai, "$(P)CV581:sRRdV") {
-    field(SCAN, "5 second")
-    field(DTYP, "stream)
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
     field(INP, "@vat616.proto get_pos1 $(PORT)")
+    field(EGU, "%")
 }
 
 record (longin, "$(P)CV581:sErr") {
-    field(SCAN, I/O Intr")
-    field(DTYP, "stream)
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
     field(INP, "@vat616.proto get_stat1 $(PORT)")
+    field(LOW, -1)
+    field(LSV, "MINOR")
+    field(HIHI, 1)
+    field(HHSV, "MAJOR")
 }
 
 record (ai, "$(P)CV582:sRRdV") {
-    field(SCAN, "5 second")
-    field(DTYP, "stream)
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
     field(INP, "@vat616.proto get_pos2 $(PORT)")
+    field(EGU, "%")
 }
 
 record (longin, "$(P)CV582:sErr") {
-    field(SCAN, I/O Intr")
-    field(DTYP, "stream)
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
     field(INP, "@vat616.proto get_stat2 $(PORT)")
+    field(LOW, -1)
+    field(LSV, "MINOR")
+    field(HIHI, 1)
+    field(HHSV, "MAJOR")
 }
 
 record (ai, "$(P)CV583:sRRdV") {
-    field(SCAN, "5 second")
-    field(DTYP, "stream)
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
     field(INP, "@vat616.proto get_pos3 $(PORT)")
+    field(EGU, "%")
 }
 
 record (longin, "$(P)CV583:sErr") {
-    field(SCAN, I/O Intr")
-    field(DTYP, "stream)
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
     field(INP, "@vat616.proto get_stat3 $(PORT)")
+    field(LOW, -1)
+    field(LSV, "MINOR")
+    field(HIHI, 1)
+    field(HHSV, "MAJOR")
 }
 
 record (bo, "$(P)CV580:cmdRst") {
-    field(DTYP, "stream)
-    field(INP, "@vat616.proto reset(0) $(PORT)")
+    field(DTYP, "stream")
+    field(OUT, "@vat616.proto reset(0) $(PORT)")
+    field(UDFS, "NO_ALARM")
+}
+record (bi, "$(P)CV580:sErr-cmd") {
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
+    field(INP, "@vat616.proto cmd_stat(0,R) $(PORT)")
+    field(VAL, "0")
+    field(ZNAM, "OK")
+    field(ONAM, "ERR")
+    field(ZSV, "NO_ALARM")
+    field(OSV, "MAJOR")
+    field(PINI, "YES")
 }
 record (bo, "$(P)CV581:cmdRst") {
-    field(DTYP, "stream)
-    field(INP, "@vat616.proto reset(1) $(PORT)")
+    field(DTYP, "stream")
+    field(OUT, "@vat616.proto reset(1) $(PORT)")
+    field(UDFS, "NO_ALARM")
+}
+record (bi, "$(P)CV581:sErr-cmd") {
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
+    field(INP, "@vat616.proto cmd_stat(1,R) $(PORT)")
+    field(VAL, "0")
+    field(ZNAM, "OK")
+    field(ONAM, "ERR")
+    field(ZSV, "NO_ALARM")
+    field(OSV, "MAJOR")
+    field(PINI, "YES")
 }
 record (bo, "$(P)CV582:cmdRst") {
-    field(DTYP, "stream)
-    field(INP, "@vat616.proto reset(2) $(PORT)")
+    field(DTYP, "stream")
+    field(OUT, "@vat616.proto reset(2) $(PORT)")
+    field(UDFS, "NO_ALARM")
+}
+record (bi, "$(P)CV582:sErr-cmd") {
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
+    field(INP, "@vat616.proto cmd_stat(2,R) $(PORT)")
+    field(VAL, "0")
+    field(ZNAM, "OK")
+    field(ONAM, "ERR")
+    field(ZSV, "NO_ALARM")
+    field(OSV, "MAJOR")
+    field(PINI, "YES")
 }
 record (bo, "$(P)CV583:cmdRst") {
-    field(DTYP, "stream)
-    field(INP, "@vat616.proto reset(3) $(PORT)")
+    field(DTYP, "stream")
+    field(OUT, "@vat616.proto reset(3) $(PORT)")
+    field(UDFS, "NO_ALARM")
+}
+record (bi, "$(P)CV583:sErr-cmd") {
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
+    field(INP, "@vat616.proto cmd_stat(3,R) $(PORT)")
+    field(VAL, "0")
+    field(ZNAM, "OK")
+    field(ONAM, "ERR")
+    field(ZSV, "NO_ALARM")
+    field(OSV, "MAJOR")
+    field(PINI, "YES")
 }
