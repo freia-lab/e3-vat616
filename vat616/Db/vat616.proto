@@ -1,0 +1,42 @@
+# VAT61.6.proto
+
+Terminator = LF;
+
+ReadTimeout = 200;
+
+get_pos0 {
+   out "L?";
+   in "L= %*d %f %*d %*f %*d %*f %*d %*f";
+}
+
+get_stat0 {
+   in "L= %d %*f %*d %*f %*d %*f %*d %*f";
+}
+
+get_pos1 {
+   in "L= %*d %*f %*d %f %*d %*f %*d %*f";
+}
+
+get_stat1 {
+   in "L= %*d %*f %d %*f %*d %*f %*d %*f";
+}
+get_pos2 {
+   in "L= %*d %*f %*d %*f %*d %f %*d %*f";
+}
+
+get_stat2 {
+   in "L= %*d %*f %*d %*f %d %*f %*d %*f";
+}
+get_pos3 {
+   in "L= %*d %*f %*d %*f %*d %*f %*d %f";
+}
+
+get_stat3 {
+   in "L= %*d %*f %*d %*f %*d %*f %d %*f";
+}
+
+reset {
+   out "R \$1";
+   in "R 0";
+   ExtraInput=Ignore;
+}

@@ -1,0 +1,21 @@
+#- ###                vat616   iocsh                ###
+#- ####################################################
+#- >> Mandatory
+#- IOCNAME      - IOC name (for the AsynRecord)
+#- IP_ADDR -	- IP address of the server
+#- 
+#- >> Optional
+#- PORT		- port number of the server (default 1138)
+#- PREFIX	- PV name Prefix, default CstatV-RHtr
+
+SRV_PORT = $(PORT=1138)
+ASYN_PORT = VAT616_PORT
+
+epicsEnvSet("STREAM_PROTOCOL_PATH","$(miscfreia_DB)")
+
+drvAsynIPPortConfigure("$(ASYN_PORT)","$(IP_ADDR):$(SRV_PORT)",0,0,0)
+
+dbLoadRecords("asynRecord.db","P='$(IOCNAME)',R=:asynRec,PORT=$(ASYN_PORT),ADDR='0',IMAX='1024',OMAX='256'")
+
+dbLoadRecords "vat616..db", "PORT=$(ASYN_PORT), P=$(PREFIX=CstatV-RHtr):"
+
