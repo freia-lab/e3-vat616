@@ -13,16 +13,14 @@ Wrapper for the module vat616
 
 ## EPICS dependencies
 
-<!-- Run `make dep` and put the results here, like:
+
 ```sh
 $ make dep
-require examplemodule,1.0.0
+STREAM_DEP_VERSION = 2.8.18+0
+require vat616,main
 < configured ...
-COMMON_DEP_VERSION = 1.0.0
-> generated ...
-common 1.0.0
 ```
--->
+
 
 ## Installation
 
