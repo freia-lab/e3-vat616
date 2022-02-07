@@ -320,10 +320,11 @@
   </widget>
   <widget type="label" version="2.0.0">
     <name>Label Template_15</name>
-    <text>Error :</text>
+    <text>Error code :</text>
     <x>30</x>
     <y>230</y>
-    <width>41</width>
+    <width>77</width>
+    <height>21</height>
     <foreground_color>
       <color name="BLACK" red="0" green="0" blue="0">
       </color>
@@ -343,7 +344,7 @@
   </widget>
   <widget type="textupdate" version="2.0.0">
     <name>Text Update Template_4</name>
-    <pv_name>$(Cvalve):sErr</pv_name>
+    <pv_name>$(Cvalve):sErrCode</pv_name>
     <x>190</x>
     <y>230</y>
     <width>60</width>
@@ -366,8 +367,8 @@
       </action>
     </actions>
     <pv_name>$(Cvalve):cmdRst</pv_name>
-    <x>40</x>
-    <y>260</y>
+    <x>20</x>
+    <y>320</y>
     <width>120</width>
     <tooltip>$(actions)</tooltip>
     <confirm_message>Are your sure you want to Reset  controller?
@@ -377,7 +378,7 @@ The valve will close!</confirm_message>
     <name>Text Update</name>
     <pv_name>$(Cvalve):sErr-cmd</pv_name>
     <x>210</x>
-    <y>290</y>
+    <y>360</y>
     <width>40</width>
     <height>30</height>
     <horizontal_alignment>1</horizontal_alignment>
@@ -387,9 +388,121 @@ The valve will close!</confirm_message>
     <name>Label_1</name>
     <text>Status of Last Command:</text>
     <x>30</x>
-    <y>290</y>
+    <y>360</y>
     <width>180</width>
     <height>30</height>
     <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_16</name>
+    <text>Error number :</text>
+    <x>30</x>
+    <y>255</y>
+    <width>98</width>
+    <height>21</height>
+    <foreground_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_5</name>
+    <pv_name>$(Cvalve):sErrNum</pv_name>
+    <x>190</x>
+    <y>255</y>
+    <width>60</width>
+    <precision>0</precision>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_17</name>
+    <text>Access mode :</text>
+    <x>30</x>
+    <y>280</y>
+    <width>94</width>
+    <height>21</height>
+    <foreground_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="BACKGROUND" red="220" green="225" blue="221">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_6</name>
+    <pv_name>$(Cvalve):sAccMode</pv_name>
+    <x>190</x>
+    <y>280</y>
+    <width>60</width>
+    <precision>0</precision>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="BLACK" red="0" green="0" blue="0">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name).PROC</pv_name>
+        <value>1</value>
+        <description>Loc</description>
+      </action>
+    </actions>
+    <pv_name>$(Cvalve):cmdLoc</pv_name>
+    <x>150</x>
+    <y>320</y>
+    <width>50</width>
+    <tooltip>Set controller to Local mode</tooltip>
+    <confirm_message>Are your sure you want to Reset  controller?
+The valve will close!</confirm_message>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name).PROC</pv_name>
+        <value>1</value>
+        <description>Rem</description>
+      </action>
+    </actions>
+    <pv_name>$(Cvalve):cmdRem</pv_name>
+    <x>210</x>
+    <y>320</y>
+    <width>50</width>
+    <tooltip>Set controller to Remote mode</tooltip>
+    <confirm_message>Are your sure you want to Reset  controller?
+The valve will close!</confirm_message>
   </widget>
 </display>

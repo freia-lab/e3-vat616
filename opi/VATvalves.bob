@@ -5,6 +5,7 @@
     <P>CstatV-RHtr:CV58</P>
   </macros>
   <width>1170</width>
+  <height>540</height>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>TITLE</class>
@@ -36,7 +37,7 @@
     <x>10</x>
     <y>70</y>
     <width>280</width>
-    <height>350</height>
+    <height>400</height>
     <border_width>1</border_width>
     <border_color>
       <color name="GRAY-BORDER" red="121" green="121" blue="121">
@@ -53,7 +54,7 @@
     <x>300</x>
     <y>70</y>
     <width>280</width>
-    <height>350</height>
+    <height>400</height>
     <border_width>1</border_width>
   </widget>
   <widget type="embedded" version="2.0.0">
@@ -66,7 +67,7 @@
     <x>590</x>
     <y>70</y>
     <width>280</width>
-    <height>350</height>
+    <height>400</height>
     <border_width>1</border_width>
   </widget>
   <widget type="embedded" version="2.0.0">
@@ -79,7 +80,7 @@
     <x>880</x>
     <y>70</y>
     <width>280</width>
-    <height>350</height>
+    <height>400</height>
     <border_width>1</border_width>
   </widget>
   <widget type="action_button" version="3.0.0">
@@ -95,8 +96,8 @@
         <description>Asyn Record...</description>
       </action>
     </actions>
-    <x>40</x>
-    <y>450</y>
+    <x>50</x>
+    <y>490</y>
     <width>110</width>
     <tooltip>$(actions)</tooltip>
   </widget>

@@ -4,42 +4,28 @@ Terminator = LF;
 
 ReadTimeout = 200;
 
-get_pos0 {
-   out "L?";
-   in "L= %*d %f %*d %*f %*d %*f %*d %*f";
+get_err_code {
+   out "L? \$1";
+   in "L= \$1 %d %*d %*d %*f";
 }
 
-get_stat0 {
-   in "L= %d %*f %*d %*f %*d %*f %*d %*f";
+get_err_no {
+   in "L= \$1 %*d %d %*d %*f";
 }
 
-get_pos1 {
-   in "L= %*d %*f %*d %f %*d %*f %*d %*f";
+get_acc_mode {
+   in "L= \$1 %*d %*d %d %*f";
 }
 
-get_stat1 {
-   in "L= %*d %*f %d %*f %*d %*f %*d %*f";
-}
-get_pos2 {
-   in "L= %*d %*f %*d %*f %*d %f %*d %*f";
+get_pos {
+   in "L= \$1 %*d %*d %*d %f";
 }
 
-get_stat2 {
-   in "L= %*d %*f %*d %*f %d %*f %*d %*f";
-}
-get_pos3 {
-   in "L= %*d %*f %*d %*f %*d %*f %*d %f";
-}
 
-get_stat3 {
-   in "L= %*d %*f %*d %*f %*d %*f %d %*f";
-}
-
-reset {
-   out "R \$1";
-   in "R \$1 %*d";
+snd_cmd {
+   out "\$2 \$1";
+   in "CS \$1 %*d";
 }
 cmd_stat {
-   in "\$2 \$1 %d";
-#   in "R \$1 %d";
+   in "CS \$1 %d";
 }

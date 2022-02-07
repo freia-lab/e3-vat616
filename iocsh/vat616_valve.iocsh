@@ -1,0 +1,12 @@
+#- ###                vat616   iocsh                ###
+#- ####################################################
+#- >> Mandatory
+#- V            - valve name
+#- PREFIX 	- PVs prefix
+#- INDX		- index of the valve in the server
+#- 
+#- 
+#- >> Optional
+#- 
+
+dbLoadRecords "vat616.db", "PORT=$(ASYN_PORT=VAT616_PORT), P=$(PREFIX=CstatV-RHtr):, V=$(V), INDX=$(INDX)"
