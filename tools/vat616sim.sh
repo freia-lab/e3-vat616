@@ -11,16 +11,16 @@ IFS=' '
 function cmd_handle {
 
     if [[ "$cmd" == "L? 0" ]]; then
-	echo "L= 0 0 0 1 0.11"
+	echo "L= 0 0 0 0 0 0.11"
 
     elif [[ "$cmd" == "L? 1" ]]; then
-	echo "L= 1 1 5 1 2.2"
+	echo "L= 1 1 5 1 1 2.2"
 
     elif [[ "$cmd" == "L? 2" ]]; then
-	echo "L= 2 -1 0 1 3.3"
+	echo "L= 2 -1 0 1 2 3.3"
 
     elif [[ "$cmd" == "L? 3" ]]; then
-	echo "L= 3 0 0 0 4.4"
+	echo "L= 3 0 0 0 3 4.4"
 
     elif [[ "$cmd" == "Rem "[0-1] ]]; then
 	read c i <<<"$cmd"
@@ -37,6 +37,13 @@ function cmd_handle {
     elif [[ "$cmd" == "Loc "[03] ]]; then
 	read c i <<<"$cmd"
 	echo "CS $i $noerr"
+	
+    elif [[ "$cmd" == "R "[0-2] ]]; then
+	read c i <<<"$cmd"
+	echo "CS $i $noerr"
+    elif [[ "$cmd" == "R 3" ]]; then
+	read c i <<<"$cmd"
+	echo "CS $i $syserr"
 	
     else
 	echo "? $cmd"

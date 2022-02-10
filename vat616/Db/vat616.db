@@ -12,6 +12,9 @@ record (longin, "$(P)$(V):sErrNum") {
     field(SCAN, "I/O Intr")
     field(DTYP, "stream")
     field(INP, "@vat616.proto get_err_no($(INDX)) $(PORT)")
+    field(DISV, "-1")
+#    field(SDIS, "$(P)$(V):sErrCode.VAL")
+#    field(DISS, "INVALID")
     field(HIHI, 1)
     field(HHSV, "MAJOR")
 }
@@ -23,6 +26,14 @@ record (bi, "$(P)$(V):sAccMode") {
     field(ZNAM, "Local")
     field(ONAM, "Remote")
     field(ZSV, "MAJOR")
+}
+
+record (longin, "$(P)$(V):sSwitches") {
+    field(SCAN, "I/O Intr")
+    field(DTYP, "stream")
+    field(INP, "@vat616.proto get_switches($(INDX)) $(PORT)")
+#    field(HIHI, 1)
+#    field(HHSV, "MAJOR")
 }
 
 record (ai, "$(P)$(V):sRRdV") {

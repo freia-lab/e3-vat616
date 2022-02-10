@@ -6,19 +6,23 @@ ReadTimeout = 200;
 
 get_err_code {
    out "L? \$1";
-   in "L= \$1 %d %*d %*d %*f";
+   in "L= \$1 %d %*d %*d %*d %*f";
 }
 
 get_err_no {
-   in "L= \$1 %*d %d %*d %*f";
+   in "L= \$1 %*d %d %*d %*d %*f";
 }
 
 get_acc_mode {
-   in "L= \$1 %*d %*d %d %*f";
+   in "L= \$1 %*d %*d %d %*d %*f";
+}
+
+get_switches {
+   in "L= \$1 %*d %*d %*d %d %*f";
 }
 
 get_pos {
-   in "L= \$1 %*d %*d %*d %f";
+   in "L= \$1 %*d %*d %*d %*d %f";
 }
 
 
