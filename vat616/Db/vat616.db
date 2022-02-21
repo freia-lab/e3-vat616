@@ -28,9 +28,15 @@ record (bi, "$(P)$(V):sAccMode") {
     field(ZSV, "MAJOR")
 }
 
-record (longin, "$(P)$(V):sSwitches") {
+record (mbbi, "$(P)$(V):sSwitches") {
     field(SCAN, "I/O Intr")
     field(DTYP, "stream")
+    field(ZRVL, "0")
+    field(ONVL, "1")
+    field(TWVL, "2")
+    field(ZRST, "Indeterm.")
+    field(ONST, "Closed")
+    field(TWST, "Open")
     field(INP, "@vat616.proto get_switches($(INDX)) $(PORT)")
 #    field(HIHI, 1)
 #    field(HHSV, "MAJOR")
