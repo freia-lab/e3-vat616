@@ -202,10 +202,11 @@ def rd_endSwitch(h):
 ######################################################################
     
 #....callback function to handle the connection on the socket
-class MyHandler(socketserver.BaseRequestHandler):
+class MyHandler(socketserver.StreamRequestHandler):
     def handle(self):
       while 1:
-        dataReceived = self.request.recv(10) #buffer size in bytes, will split longer messages
+        dataReceived = self.rfile.readline() #buffer size in bytes, will split longer messages
+#        print(dataReceived)
         if not dataReceived: break
         request=dataReceived.decode()
 #        print(request)
@@ -231,7 +232,7 @@ class MyHandler(socketserver.BaseRequestHandler):
             print(e)
         
 #        print(txt)
-        self.request.send(txt.encode())
+        self.wfile.write(txt.encode())
         
 # https://stackoverflow.com/a/18858817        
 class MyTCPServer(socketserver.TCPServer):

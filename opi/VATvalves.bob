@@ -33,7 +33,7 @@
       <Cvalve>$(P)$(N)</Cvalve>
       <N>0</N>
     </macros>
-    <file>Embedded/CstatV-VATvalve.bob</file>
+    <file>../freia-symbols/display-builder/CmdPanels/CstatV-VATvalve.bob</file>
     <x>10</x>
     <y>70</y>
     <width>280</width>
@@ -50,7 +50,7 @@
       <Cvalve>$(P)$(N)</Cvalve>
       <N>1</N>
     </macros>
-    <file>Embedded/CstatV-VATvalve.bob</file>
+    <file>../freia-symbols/display-builder/CmdPanels/CstatV-VATvalve.bob</file>
     <x>300</x>
     <y>70</y>
     <width>280</width>
@@ -63,7 +63,7 @@
       <Cvalve>$(P)$(N)</Cvalve>
       <N>2</N>
     </macros>
-    <file>Embedded/CstatV-VATvalve.bob</file>
+    <file>../freia-symbols/display-builder/CmdPanels/CstatV-VATvalve.bob</file>
     <x>590</x>
     <y>70</y>
     <width>280</width>
@@ -76,7 +76,7 @@
       <Cvalve>$(P)$(N)</Cvalve>
       <N>3</N>
     </macros>
-    <file>Embedded/CstatV-VATvalve.bob</file>
+    <file>../freia-symbols/display-builder/CmdPanels/CstatV-VATvalve.bob</file>
     <x>880</x>
     <y>70</y>
     <width>280</width>
