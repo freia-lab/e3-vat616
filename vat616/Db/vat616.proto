@@ -4,27 +4,10 @@ Terminator = LF;
 
 ReadTimeout = 200;
 
-get_err_code {
+get_data {
    out "L? \$1";
-   in "L= \$1 %-x %*d %*d %*d %*f";
+   in "L= \$1 %-x %(\$2)x %(\$3)x %(\$4)x %(\$5)f";
 }
-
-get_err_no {
-   in "L= \$1 %*d %x %*d %*d %*f";
-}
-
-get_acc_mode {
-   in "L= \$1 %*d %*d %x %*d %*f";
-}
-
-get_switches {
-   in "L= \$1 %*d %*d %*d %x %*f";
-}
-
-get_pos {
-   in "L= \$1 %*d %*d %*d %*d %f";
-}
-
 
 snd_cmd {
    out "\$2 \$1";

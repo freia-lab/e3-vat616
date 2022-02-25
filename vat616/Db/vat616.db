@@ -1,7 +1,7 @@
 record (longin, "$(P)$(V):sErrCode") {
     field(SCAN, "5 second")
     field(DTYP, "stream")
-    field(INP, "@vat616.proto get_err_code($(INDX)) $(PORT)")
+    field(INP, "@vat616.proto get_data($(INDX),$(P)$(V):sErrNum,$(P)$(V):sAccMode,$(P)$(V):sSwitches,$(P)$(V):sRRdV) $(PORT)")
     field(LOW, -1)
     field(LSV, "MINOR")
     field(HIHI, 1)
@@ -9,9 +9,6 @@ record (longin, "$(P)$(V):sErrCode") {
 }
 
 record (longin, "$(P)$(V):sErrNum") {
-    field(SCAN, "I/O Intr")
-    field(DTYP, "stream")
-    field(INP, "@vat616.proto get_err_no($(INDX)) $(PORT)")
     field(DISV, "-1")
 #    field(SDIS, "$(P)$(V):sErrCode.VAL")
 #    field(DISS, "INVALID")
@@ -20,32 +17,23 @@ record (longin, "$(P)$(V):sErrNum") {
 }
 
 record (bi, "$(P)$(V):sAccMode") {
-    field(SCAN, "I/O Intr")
-    field(DTYP, "stream")
-    field(INP, "@vat616.proto get_acc_mode($(INDX)) $(PORT)")
     field(ZNAM, "Local")
     field(ONAM, "Remote")
     field(ZSV, "MAJOR")
 }
 
 record (mbbi, "$(P)$(V):sSwitches") {
-    field(SCAN, "I/O Intr")
-    field(DTYP, "stream")
     field(ZRVL, "0")
     field(ONVL, "1")
     field(TWVL, "2")
     field(ZRST, "Indeterm.")
     field(ONST, "Closed")
     field(TWST, "Open")
-    field(INP, "@vat616.proto get_switches($(INDX)) $(PORT)")
 #    field(HIHI, 1)
 #    field(HHSV, "MAJOR")
 }
 
 record (ai, "$(P)$(V):sRRdV") {
-    field(SCAN, "I/O Intr")
-    field(DTYP, "stream")
-    field(INP, "@vat616.proto get_pos($(INDX)) $(PORT)")
     field(EGU, "%")
 }
 
