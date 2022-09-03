@@ -89,7 +89,7 @@
       <action type="open_display">
         <file>../freia-symbols/display-builder/asyn/asynRecord.bob</file>
         <macros>
-          <P>ioc-vat616:</P>
+          <P>ioc01-vat616:</P>
           <R>asynRec</R>
         </macros>
         <target>replace</target>
