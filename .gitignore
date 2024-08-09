@@ -10,6 +10,7 @@
 core.*
 *-loc/*.Makefile
 vat616/*.Makefile
+vat616/O.*
 cellMods/
 testMods*/
 *PVs.list

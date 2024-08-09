@@ -1,6 +1,7 @@
 # This should be a test or example startup script
 
 require vat616
+require afterinit
 
 iocshLoad(${vat616_DIR}/vat616_server.iocsh, "IOCNAME = ioc-vat616, IP_ADDR = 192.168.10.110")
 
