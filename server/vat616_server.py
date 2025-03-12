@@ -5,6 +5,17 @@ import socket
 import hid
 import binascii
 import struct
+import logging
+import logging.handlers
+
+# Set up syslog handler
+syslog_handler = logging.handlers.SysLogHandler(address='/dev/log')  # Works on Linux
+
+# Configure logging
+logger = logging.getLogger("vat616Server")
+logger.setLevel(logging.INFO)  # Log INFO and above
+syslog_handler.setFormatter(logging.Formatter('%(name)s: %(levelname)s - %(message)s'))
+logger.addHandler(syslog_handler)
 
 cv580_serno="61632-KEM1-0001/0001" #not connected atm
 cv581_serno="61634-KEM1-0001/0002"
@@ -30,6 +41,7 @@ p_list = len(valveId)*["0"]
 
 
 print ("Starting vat616_server.py")    
+logger.info("Starting vat616_server.py")
 
 def identify(v):
     try:
@@ -45,6 +57,7 @@ def identify(v):
                     path.index(d['path'])
                     continue
                 except Exception as e:
+                    logger.error(f"identify: path.index(): {e}") 
                     pass
                 
                 hid_device[v].open_path(d['path']) #CANNOT/SHOULD NOT OPEN A PATH ALREADY OPEN!
@@ -56,7 +69,8 @@ def identify(v):
                 else:
                     hid_device[v].close()    
     except Exception as e:
-        print(e)
+        print("indetify: " + str(e))
+        logger.error(f"identify: {e}")
         pass
     return
 
@@ -65,6 +79,7 @@ def cleanup():
         try:
             d.close()
         except:
+            logger.error(f"cleanup: d.close() {e}")
             pass
         
         
@@ -76,7 +91,8 @@ def send_reset(v):
         wr_reset(hid_device[v])
         return "CS " + str(v) + " 0\n"
     except Exception as e:
-        print(e)
+        print("send_reset " + str(e))
+        logger.error(f"send_reset: {e}")
         identify(v)
         return "CS " + str(v) + " -1\n"
     
@@ -102,7 +118,8 @@ def getdata(v):
         #print("before return")
         return s
     except Exception as e:
-        print(e)
+        print("getdata: " + str(e))
+        logger.error(f"getdata: {e}")
         identify(v)
         #return "L= " + str(v) + " -1 00 0 0.00\n" # CORRECT?
         s = "L= " + str(v) + " -1 " + en_list[v] + " " + am_list[v] + " " + es_list[v] + " " + p_list[v] + "\n"
@@ -112,7 +129,8 @@ def set_local(v):
         wr_local(hid_device[v])
         return "CS " + str(v) + " 0\n"
     except Exception as e:
-        print(e)
+        print("set_local " + str(e))
+        logger.error(f"set_local: {e}")
         identify(v)
         return "CS " + str(v) + " -1\n"
     
@@ -121,7 +139,8 @@ def set_remote(v):
         wr_remote(hid_device[v])
         return "CS " + str(v) + " 0\n"
     except Exception as e:
-        print(e)
+        print("set_remote " + str(e))
+        logger.error(f"set_remote: {e}")
         identify(v)
         return "CS " + str(v) + " -1\n"
     
@@ -229,8 +248,8 @@ class MyHandler(socketserver.StreamRequestHandler):
                 elif res[0]=="Rem":
                     txt = set_remote(ind)
         except Exception as e:
-            print(e)
-        
+            print("handle " + str(e))
+            logger.error(f"handle: {e}")
 #        print(txt)
         self.wfile.write(txt.encode())
         
@@ -249,4 +268,5 @@ try:
 except KeyboardInterrupt:
     cleanup()
     print("Ctrl-c user exit. \nClosing all devices...")
+    logger.info(f"Ctrl-c user exit: {e}")
     sys.exit()
