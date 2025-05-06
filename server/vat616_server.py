@@ -47,14 +47,13 @@ def identify(v):
     try:
         #hd=hid.device()
         logger.info(f"identify: index={v}; path={path[v]}")
-        print(f"path[]={path}")
         if path[v]!="":
-            print(f"Opening device for index={v}")
+            # print(f"Opening device for index={v}")
             hid_device[v].open_path(path[v])
         else:
             logger.info("identify: enumerating hid devices 0x272b, 0x0010")
             for d in hid.enumerate(0x272b, 0x0010):
-                print(f"path={d['path']}")
+                # print(f"path={d['path']}")
                 #i.e if the enumerated path is already in pathlist, do NOT try to open it
                 if path[v]=="":
                     try:
@@ -74,9 +73,9 @@ def identify(v):
                 logger.info(f"identify: serial number: {sn}")
                 if serial_number[v]==sn:
                     path[v]=d['path']
-                    logger.info(f"identify: identified: {valveId[v]}")
-                    print(f"Identified {valveId[v]} at index={v}")
-                    print(f"path[]={path}")
+                    logger.info(f"identify: identified: {valveId[v]} connected to {path[v]}")
+                    print(f"Identified {valveId[v]} at index={v} device {path[v]}")
+                    # print(f"path[]={path}")
                     return
                 else:
                     hid_device[v].close()    
@@ -106,10 +105,9 @@ def send_reset(v):
         path[v] = ""
         time.sleep(1)
         identify(v)
-        #        return "CS " + str(v) + " 0\n"
-        return ""
+        return "CS " + str(v) + " 0\n"
     except Exception as e:
-        print("send_reset " + str(e))
+        #print("send_reset " + str(e))
         logger.error(f"send_reset: {e}")
         identify(v)
         return "CS " + str(v) + " -1\n"
@@ -279,7 +277,6 @@ class MyTCPServer(socketserver.TCPServer):
 
           
 port=1138   # port number for epics to connect to
-#myserver = socketserver.TCPServer(('',port),MyHandler)
 myserver = MyTCPServer(("", port), MyHandler)
 try:
     myserver.serve_forever()

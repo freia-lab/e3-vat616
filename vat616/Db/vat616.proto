@@ -13,6 +13,13 @@ snd_cmd {
    out "\$2 \$1";
    in "CS \$1 %*d";
 }
+
+reset_cmd {
+   out "R \$1";
+   wait 1000;
+   in "CS \$1 %*d";
+}
+
 cmd_stat {
    in "CS \$1 %d";
 }

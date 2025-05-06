@@ -40,7 +40,7 @@ record (ai, "$(P)$(V):sRRdV") {
 
 record (bo, "$(P)$(V):cmdRst") {
     field(DTYP, "stream")
-    field(OUT, "@vat616.proto snd_cmd($(INDX), R) $(PORT)")
+    field(OUT, "@vat616.proto reset_cmd($(INDX)) $(PORT)")
     field(UDFS, "NO_ALARM")
 }
 record (bo, "$(P)$(V):cmdRem") {
