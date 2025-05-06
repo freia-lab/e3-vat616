@@ -46,25 +46,37 @@ logger.info("Starting vat616_server.py")
 def identify(v):
     try:
         #hd=hid.device()
+        logger.info(f"identify: index={v}; path={path[v]}")
+        print(f"path[]={path}")
         if path[v]!="":
+            print(f"Opening device for index={v}")
             hid_device[v].open_path(path[v])
         else:
+            logger.info("identify: enumerating hid devices 0x272b, 0x0010")
             for d in hid.enumerate(0x272b, 0x0010):
-                
+                print(f"path={d['path']}")
                 #i.e if the enumerated path is already in pathlist, do NOT try to open it
+                if path[v]=="":
+                    try:
+                        i=path.index(d['path'])
+                        logger.info(f"identify: already found path {d['path']} in path[{i}]")
+                        continue
+                    except Exception as e:
+                        logger.error(f"identify: path.index(): {e}")
+                        hid_device[v].close()
+                        logger.info(f"Opening device {d['path']}")
+                        hid_device[v].open_path(d['path']) #CANNOT/SHOULD NOT OPEN A PATH ALREADY OPEN!
+                        logger.info(f"Opened device {d['path']}")
+                        pass
                 
-                try:
-                    path.index(d['path'])
-                    continue
-                except Exception as e:
-                    logger.error(f"identify: path.index(): {e}") 
-                    pass
-                
-                hid_device[v].open_path(d['path']) #CANNOT/SHOULD NOT OPEN A PATH ALREADY OPEN!
-                #print(rd_serialNo(hd))
-                if serial_number[v]==rd_serialNo(hid_device[v]):
+                logger.info(f"identify: reading serial number of {d['path']}")
+                sn = rd_serialNo(hid_device[v])
+                logger.info(f"identify: serial number: {sn}")
+                if serial_number[v]==sn:
                     path[v]=d['path']
-                    print("Identified "+valveId[v])
+                    logger.info(f"identify: identified: {valveId[v]}")
+                    print(f"Identified {valveId[v]} at index={v}")
+                    print(f"path[]={path}")
                     return
                 else:
                     hid_device[v].close()    
@@ -89,7 +101,13 @@ def send_reset(v):
     try:
         wr_local(hid_device[v])
         wr_reset(hid_device[v])
-        return "CS " + str(v) + " 0\n"
+        logger.info(f"send_reset: {v}")
+        hid_device[v].close
+        path[v] = ""
+        time.sleep(1)
+        identify(v)
+        #        return "CS " + str(v) + " 0\n"
+        return ""
     except Exception as e:
         print("send_reset " + str(e))
         logger.error(f"send_reset: {e}")
